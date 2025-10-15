@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail | Furniture Haven</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background: #fff;
+      padding: 15px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+    nav a:hover {
+      color: #007bff;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .product-image {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+    .product-image img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .product-info {
+      flex: 1 1 300px;
+    }
+    .product-info h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .product-info p {
+      color: #555;
+      line-height: 1.6;
+    }
+    .price {
+      font-size: 22px;
+      color: #007bff;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: #007bff;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container" id="product-detail">
+    <p>Loading product details...</p>
+  </div>
+
+    <!-- Your HTML content above -->
+
+  <script>
+    // Get product ID from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get("id");
+
+    async function fetchProductDetail() {
+      const container = document.getElementById("product-detail");
+
+      try {
+        // Fetch all products
+        const response = await fetch("https://template6-six.vercel.app/api/products");
+        const products = await response.json();
+
+        // Find product by ID
+        const product = products.find(p => p.id == productId);
+
+        if (!product) {
+          container.innerHTML = "<p>❌ Product not found.</p>";
+          return;
+        }
+
+        // Display product detail
+        container.innerHTML = `
+          <div class="product-image">
+            <img src="${product.image}" alt="${product.title}">
+          </div>
+          <div class="product-info">
+            <h2>${product.title}</h2>
+            <p class="price">$${product.price}</p>
+            <p>${product.description || "No description available."}</p>
+            <a href="products.html" class="back-btn">⬅ Back to Products</a>
+          </div>
+        `;
+      } catch (error) {
+        console.error(error);
+        container.innerHTML = "<p>❌ Failed to load product details. Please try again.</p>";
+      }
+    }
+
+    fetchProductDetail();
+  </script>
+</body>
+</html>
+
+</body>
+</html>
