@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | Furniture Haven</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    /* Navbar */
+    header {
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+    }
+
+    nav h1 {
+      font-size: 1.6rem;
+      color: #8b5e3c;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #8b5e3c;
+    }
+
+    /* Hero */
+    .hero {
+      background: url('images/Rectangle 20.png') center/cover no-repeat;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      max-width: 1100px;
+      margin: 4rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      padding: 0 2rem;
+    }
+
+    .contact-info {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-info h3 {
+      color: #8b5e3c;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    .contact-info p {
+      margin-bottom: 0.8rem;
+      color: #555;
+    }
+
+    .social-links {
+      margin-top: 1rem;
+    }
+
+    .social-links a {
+      text-decoration: none;
+      color: #8b5e3c;
+      margin-right: 15px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #5a3c1f;
+    }
+
+    /* Contact Form */
+    form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    form h3 {
+      color: #8b5e3c;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      color: #333;
+      font-weight: 500;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    button {
+      background: #8b5e3c;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #6e482e;
+    }
+
+    /* Footer */
+    footer {
+      background: #3a3a3a;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .hero h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <h1>Furniture Haven</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Get in touch for inquiries, feedback, or support.</p>
+  </section>
+
+  <!-- Contact Info + Form -->
+  <section class="contact-container">
+    <div class="contact-info">
+      <h3>Our Office</h3>
+      <p><strong>Address:</strong> 123 Comfort Street, Karachi, Pakistan</p>
+      <p><strong>Phone:</strong> +92 300 1234567</p>
+      <p><strong>Email:</strong> support@furniturehaven.com</p>
+
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+
+    <form id="contactForm">
+      <h3>Send a Message</h3>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email">
+
+      <label for="message">Message</label>
+      <textarea id="message" placeholder="Write your message"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Furniture Haven. All Rights Reserved.
+  </footer>
+
+  <!-- JavaScript: Form Validation -->
+  <script>
+    const form = document.getElementById("contactForm");
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        alert("⚠️ Please fill in all fields before submitting.");
+        return;
+      }
+
+      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (!email.match(emailPattern)) {
+        alert("📧 Please enter a valid email address.");
+        return;
+      }
+
+      alert("✅ Thank you! Your message has been recorded (static demo).");
+      form.reset();
+    });
+  </script>
+</body>
+</html>
